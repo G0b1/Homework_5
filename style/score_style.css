@@ -1,0 +1,8 @@
+#game_window{
+    display: inline-block;
+}
+#score_board {
+    display: inline-block;
+    padding-left: 13px;
+    position: absolute;
+}

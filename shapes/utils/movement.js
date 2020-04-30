@@ -8,26 +8,18 @@ export class Movement {
         this.canMove = true;
     }
 
-    rotateTest() {
+    rotate() {
         const row = this.shape.row;
         const column = this.shape.column;
         this.shape.clear();
         const nextTemplate = this.shape.getNextTemplate();
-        console.log(nextTemplate);
+        const nextNotAvailable = this.validator.rotateCheck(nextTemplate, row, column);
 
-        const nextNotAvailableRight = this.validator.rotateCheck(nextTemplate, row, column + 1);
-        const nextNotAvailableLeft = this.validator.rotateCheck(nextTemplate, row, column - 1);
-        const nextNotAvailableDown = this.validator.rotateCheck(nextTemplate, row + 1, column);
-
-        console.log(nextNotAvailableRight);
-        console.log(nextNotAvailableLeft);
-        console.log(nextNotAvailableDown);
-
-        if (!nextNotAvailableLeft && !nextNotAvailableRight && !nextNotAvailableDown) {
-            this.shape.rotate();
+        if (!nextNotAvailable) {
+            this.shape.rotateTemplate();
             this.shape.draw();
         }
-        if (nextNotAvailableLeft && nextNotAvailableRight && nextNotAvailableDown) {
+        if (nextNotAvailable) {
             this.shape.draw();
         }
     }

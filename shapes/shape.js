@@ -29,7 +29,7 @@ export class Shape {
         }
     }
 
-    rotate() {
+    rotateTemplate() {
         console.log('rotate!');
         const length = this.getTemplates().length;
         this.templateIndex++;
@@ -39,7 +39,7 @@ export class Shape {
 
     getNextTemplate() {
         const length = this.getTemplates().length;
-        let index = this.templateIndex++;
+        let index = this.templateIndex + 1;
         const newTemplate = this.getTemplates()[index % length];
         return newTemplate;
     }
