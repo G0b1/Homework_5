@@ -25,11 +25,9 @@ document.addEventListener("keydown", event => {
             movement.down();
             break;
         case 'ArrowLeft':
-            console.log('left');
             canMoveLeft();
             break;
         case 'ArrowRight':
-            console.log('right');
             canMoveRight();
             break;
         case 'Enter':
@@ -83,9 +81,7 @@ function completeLine() {
                 count++;
             }
         }
-        console.log("Count: " + count);
         if (count == 9) {
-            console.log(row + "-----" + column);
             clearLine(row);
             score += 10;
             $("#score").html(score);

@@ -29,8 +29,8 @@ export class Movement {
         const column = this.shape.column;
         this.shape.clear();
         const nextNotAvailable = this.validator.checkNext(row + 1, column);
+
         if (nextNotAvailable) {
-            console.log("can move down not available");
             this.shape.draw();
             this.canMove = false;
             return;
